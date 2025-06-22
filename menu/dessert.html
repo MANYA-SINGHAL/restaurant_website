@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang =en>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <h1 class="cuisine text-6xl italic font-semibold text-center pt-12">DESSERTS</h1>
+
+    <div id="fade-carousel" class="relative w-full py-12 px-12">
+        <div class="relative h-[650px] overflow-hidden rounded-lg">
+             <!-- Item 1 -->
+          <div class="fade-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out z-10">
+            <img src="https://i.postimg.cc/pX4Yj76t/pexels-ash-craig-122861-376464.jpg" class="w-full h-full object-cover" />
+          </div>
+           <!-- Item 2 -->
+          <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+            <img src="https://i.postimg.cc/W1ZmwnBq/pexels-quang-nguyen-vinh-222549-2144112.jpg" class="w-full h-full object-cover" />
+          </div>
+           <!-- Item 3 -->
+          <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+            <img src="https://i.postimg.cc/7LMgpLYx/pexels-joaquin-egea-18193-88917.jpg" class="w-full h-full object-cover" />
+          </div>
+           <!-- Item 4 -->
+          <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+            <img src="https://i.postimg.cc/76HgDyfS/pexels-cottonbro-3992132.jpg" class="w-full h-full object-cover" />
+          </div>
+           <!-- Item 5 -->
+          <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+            <img src="https://i.postimg.cc/MHXVMb0T/pexels-chiecharon-970104.jpg" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        const slides = document.querySelectorAll(".fade-slide");
+        let current = 0;
+      
+        function showNextSlide() {
+          slides[current].classList.remove("opacity-100", "z-10");
+          slides[current].classList.add("opacity-0", "z-0");
+      
+          current = (current + 1) % slides.length;
+      
+          slides[current].classList.remove("opacity-0", "z-0");
+          slides[current].classList.add("opacity-100", "z-10");
+        }
+      
+        setInterval(showNextSlide, 3000); // change image every 3s
+      </script>
+
+
+              <section class="px-20 py-12 bg-white text-black font-serif">
+                <div class="grid md:grid-cols-4 gap-28 max-w-7xl mx-36">
+                  
+                 <!-- Starters -->
+                 <div>
+                    <h2 class="text-2xl italic font-semibold mb-6">STARTERS</h2>
+                    <ul class="space-y-5">
+                      <li>
+                        <p>Vegetable Spring Roll</p>
+                        <p class="text-sm">$12</p>
+                      </li>
+                      <li>
+                        <p>Dragon Chilli Potato</p>
+                        <p class="text-sm">$17</p>
+                      </li>
+                      <li>
+                        <p>Honey Chilli Potato</p>
+                        <p class="text-sm">$19</p>
+                      </li>
+                      <li>
+                        <p>Dry Chilli Paneer</p>
+                        <p class="text-sm">$17</p>
+                      </li>
+                      <li>
+                        <p>American Crispy Corn</p>
+                        <p class="text-sm">$18</p>
+                      </li>
+                      <li>
+                        <p>Chilli Baby Corn</p>
+                        <p class="text-sm">$19 / $21</p>
+                      </li>
+                      <li>
+                        <p>Dimsums</p>
+                        <p class="text-sm">$26 / $29</p>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Meat & Fish -->
+                  <div>
+                    <h2 class="text-2xl italic font-semibold mb-6">CURRIES</h2>
+                    <ul class="space-y-5">
+                      <li>
+                        <p>Paneer Tikka Masala</p>
+                        <p class="text-sm">$35</p>
+                      </li>
+                      <li>
+                        <p>Butter Chicken</p>
+                        <p class="text-sm">$39</p>
+                      </li>
+                      <li>
+                        <p>Chicken Tikka Masala</p>
+                        <p class="text-sm">$37</p>
+                      </li>
+                      <li>
+                        <p>Kadai Paneer</p>
+                        <p class="text-sm">$34</p>
+                      </li>
+                      <li>
+                        <p>Shahi Paneer</p>
+                        <p class="text-sm">$45</p>
+                      </li>
+                    </ul>
+                  </div>
+              
+                  <!-- Sides -->
+                  <div>
+                    <h2 class="text-2xl italic font-semibold mb-6">SIDES & BREADS</h2>
+                    <ul class="space-y-5">
+                      <li>
+                        <p>Plain Tandoori Roti</p>
+                        <p class="text-sm">$16</p>
+                      </li>
+                      <li>
+                        <p>Butter Tandoori Roti</p>
+                        <p class="text-sm">$15</p>
+                      </li>
+                      <li>
+                        <p>Butter Naan</p>
+                        <p class="text-sm">$15</p>
+                      </li>
+                      <li>
+                        <p>Garlic Naan</p>
+                        <p class="text-sm">$15</p>
+                      </li>
+                      <li>
+                        <p>Lachha Paratha</p>
+                        <p class="text-sm">$15</p>
+                      </li>
+                    </ul>
+                  </div>
+
+               <!-- Rice & Biryani -->
+               <div>
+                <h2 class="text-2xl italic font-semibold mb-6">RICE & BIRYANI</h2>
+                <ul class="space-y-5">
+                  <li>
+                    <p>Jeera Rice</p>
+                    <p class="text-sm">$16</p>
+                  </li>
+                  <li>
+                    <p>Vegetable Fried Rice</p>
+                    <p class="text-sm">$15</p>
+                  </li>
+                  <li>
+                    <p>Hyderabadi Biryani</p>
+                    <p class="text-sm">$15</p>
+                  </li>
+                  <li>
+                    <p>Chicken Biryani</p>
+                    <p class="text-sm">$15</p>
+                  </li>
+                  <li>
+                    <p>Malabar Biryani</p>
+                    <p class="text-sm">$15</p>
+                  </li>
+                </ul>
+              </div>
+          
+            </div>
+          </section>
+
+          <div id="navbar-placeholder"></div>
+          <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+</body>

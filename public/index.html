@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+      
+      .font-playfair { font-family: 'Playfair Display', serif; }
+      .font-inter { font-family: 'Inter', sans-serif; }
+      
+      .gradient-bg {
+          background: linear-gradient(135deg, #172e6d 0%, #28227b 50%, #1e1b4b 100%);
+      }
+      
+      .card-hover {
+          transition: all 0.4s ease;
+      }
+      
+      .card-hover:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      
+      .image-overlay {
+          background: linear-gradient(45deg, rgba(30, 58, 138, 0.9), rgba(55, 48, 163, 0.8));
+      }
+      
+      .text-glow {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      
+      .floating-animation {
+          animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+      }
+      
+      .parallax-bg {
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+      
+      .glass-effect {
+          backdrop-filter: blur(10px);
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="bg-white dark:bg-gray-900 dark:border-gray-700 border-4 border-blue-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-6 ">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-5xl font-semibold whitespace-nowrap dark:text-white">DINING HUB</span>
+      </a>
+      <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto p-6" id="navbar-dropdown">
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-black bg-blue-700 rounded md:bg-transparent md:text-black md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Hours & Location</a>
+          </li>
+          <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Menus <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg></button>
+              <!-- Dropdown menu -->
+              <div id="dropdownNavbar" class="z-50 absolute hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                        <a href="menu/mocktail.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mocktails & Cocktails</a>
+                      </li>
+                    <li>
+                      <a href="menu/north_ind.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">North Indian</a>
+                    </li>
+                    <li>
+                      <a href="menu/chinese.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chinese</a>
+                    </li>
+                    <li>
+                      <a href="menu/italian.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Italian</a>
+                    </li>
+                    <li>
+                      <a href="menu/mexican.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mexican</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Continental</a>
+                      </li>
+                      <li>
+                    <a href="menu/dessert.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Desserts</a>
+                      </li>
+                  </ul>
+              </div>
+          </li>
+          <li>
+            <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Event Type <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+  </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar2" class="z-50 absolute hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                  <li>
+                      <a href="events/date.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Date</a>
+                    </li>
+                  <li>
+                    <a href="events/family.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Family Gatherings</a>
+                  </li>
+                  <li>
+                <a href="events/birthday.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Birthdays</a>
+                  </li>
+                  <li>
+                    <a href="events/kitty.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kitty Parties</a>
+                  </li>
+                  <li>
+                 <a href="events/friends_meet.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Friends Meetup</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+          <li>
+            <a href="reserve1.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Reservations</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--Image Slider-->
+  <div id="fade-carousel" class="relative w-full py-12 px-6">
+    <div class="relative h-[650px] overflow-hidden rounded-lg">
+         <!-- Item 1 -->
+      <div class="fade-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out z-10">
+        <img src="https://i.postimg.cc/kgkDKhLM/rest8.jpg" class="w-full h-full object-cover" />
+      </div>
+       <!-- Item 2 -->
+      <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+        <img src="https://i.postimg.cc/65WNzG6K/rest2.webp" class="w-full h-full object-cover" />
+      </div>
+       <!-- Item 3 -->
+      <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+        <img src="https://i.postimg.cc/FHq59WyF/rest3.webp" class="w-full h-full object-cover" />
+      </div>
+       <!-- Item 4 -->
+      <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+        <img src="https://i.postimg.cc/rpZqwmtw/rest1.jpg" class="w-full h-full object-cover" />
+      </div>
+       <!-- Item 5 -->
+      <div class="fade-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+        <img src="https://i.postimg.cc/qqJdJXFZ/pexels-suzyhazelwood-1098592.jpg" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const slides = document.querySelectorAll(".fade-slide");
+    let current = 0;
+  
+    function showNextSlide() {
+      slides[current].classList.remove("opacity-100", "z-10");
+      slides[current].classList.add("opacity-0", "z-0");
+  
+      current = (current + 1) % slides.length;
+  
+      slides[current].classList.remove("opacity-0", "z-0");
+      slides[current].classList.add("opacity-100", "z-10");
+    }
+  
+    setInterval(showNextSlide, 3000); // change image every 3s
+  </script>
+
+<!--Description Section -->
+<div class="relative gradient-bg text-white overflow-hidden">
+  <div class="absolute inset-0 bg-black opacity-20"></div>
+  <div class="absolute top-0 left-0 w-full h-full">
+      <div class="absolute top-10 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 floating-animation"></div>
+      <div class="absolute bottom-10 right-10 w-16 h-16 bg-pink-400 rounded-full opacity-20 floating-animation" style="animation-delay: -2s;"></div>
+      <div class="absolute top-1/2 right-1/4 w-12 h-12 bg-green-400 rounded-full opacity-20 floating-animation" style="animation-delay: -4s;"></div>
+  </div>
+  
+  <div class="relative z-10 px-8 py-16 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+          <h1 class="font-playfair text-6xl font-bold text-glow mb-6">Dining Hub</h1>
+          <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-8"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+              <p class="text-xl leading-relaxed font-light">
+                  A culinary adventure awaits at <span class="font-semibold text-yellow-300">Dining Hub</span>, where we bring together the finest flavors from around the world. Indulge in a diverse menu featuring tantalizing dishes from Indian, Chinese, Italian, and more.
+              </p>
+              <p class="text-lg leading-relaxed font-light opacity-90">
+                  Our chefs expertly craft each dish with fresh, high-quality ingredients, ensuring a memorable dining experience. Whether you're craving spicy curries, aromatic noodles, or classic pizzas, Dining Hub has something to satisfy every palate.
+              </p>
+          </div>
+          
+          <div class="relative">
+              <div class="glass-effect rounded-2xl p-8 text-center">
+                  <div class="text-4xl mb-4">🍽️</div>
+                  <h3 class="font-playfair text-2xl font-semibold mb-4">Global Flavors</h3>
+                  <p class="text-sm opacity-80">Experience authentic tastes from around the world</p>
+              </div>
+          </div>
+      </div>
+      
+      <div class="text-center mt-12">
+          <p class="font-playfair text-3xl font-semibold text-glow">Come join us on our mouth watering adventure ride.</p>
+      </div>
+  </div>
+</div>
+
+<!-- Host a Party Section -->
+<div class="py-24 bg-gray-50">
+  <div class="container mx-auto px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="lg:w-2/3 relative group">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+              <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img src="https://i.postimg.cc/43kKY5ZZ/rest6.webp" 
+                       alt="Restaurant Party Setup" 
+                       class="w-full h-96 lg:h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 image-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                      <div class="text-white text-center">
+                          <div class="text-6xl mb-4">🎉</div>
+                          <p class="text-2xl font-semibold">Perfect for Celebrations</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="lg:w-1/3 relative">
+              <div class="card-hover bg-white rounded-3xl shadow-xl p-12 text-center relative overflow-hidden">
+                  <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full transform translate-x-10 -translate-y-10 opacity-20"></div>
+                  
+                  <div class="relative z-10">
+                      <div class="text-6xl mb-6">🎪</div>
+                      <h2 class="font-playfair text-5xl font-bold text-gray-800 mb-8">HOST A PARTY</h2>
+                      <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
+                      <p class="text-gray-600 leading-relaxed text-lg">
+                          Transform your special occasions into unforgettable memories with our premium party hosting services. From intimate gatherings to grand celebrations, we provide the perfect ambiance, exceptional cuisine, and impeccable service.
+                      </p>
+                      <button class="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                          Book Your Event
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Menus Section -->
+<div class="py-24 bg-white">
+  <div class="container mx-auto px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="lg:w-1/3 relative order-2 lg:order-1">
+              <div class="card-hover bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-3xl shadow-xl p-12 text-center relative overflow-hidden">
+                  <div class="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 rounded-full transform -translate-x-16 -translate-y-16 opacity-20"></div>
+                  
+                  <div class="relative z-10">
+                      <div class="text-6xl mb-6">📋</div>
+                      <h2 class="font-playfair text-5xl font-bold mb-8">MENUS</h2>
+                      <div class="w-16 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto mb-8"></div>
+                      <p class="text-gray-300 leading-relaxed text-lg">
+                          Discover our carefully curated collection of authentic dishes from around the globe. Each menu tells a story of tradition, flavor, and culinary excellence, crafted by our master chefs using the finest ingredients.
+                      </p>
+                      <button onclick="triggerMenuDropdown()" class="inline-block mt-8 bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                          View All Menus
+                      </button>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="lg:w-2/3 relative group order-1 lg:order-2">
+              <div class="absolute inset-0 bg-gradient-to-br from-green-600 to-blue-600 rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
+              <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img src="https://i.postimg.cc/1t1Y7LQT/rest7.avif" 
+                       alt="Delicious Menu Items" 
+                       class="w-full h-96 lg:h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 image-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                      <div class="text-white text-center">
+                          <div class="text-6xl mb-4">🍜</div>
+                          <p class="text-2xl font-semibold">Authentic Global Cuisine</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Enhanced Footer -->
+<footer class="relative gradient-bg text-white overflow-hidden">
+  <div class="absolute inset-0 bg-black opacity-30"></div>
+  <div class="absolute top-0 left-0 w-full h-full">
+      <div class="absolute top-5 right-20 w-16 h-16 bg-yellow-400 rounded-full opacity-10 floating-animation"></div>
+      <div class="absolute bottom-5 left-20 w-12 h-12 bg-pink-400 rounded-full opacity-10 floating-animation" style="animation-delay: -3s;"></div>
+  </div>
+  
+  <div class="relative z-10 py-16 px-8">
+      <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-12">
+              <div class="text-center md:text-left">
+                  <h3 class="font-playfair text-3xl font-bold mb-6 text-glow">Contact Us</h3>
+                  <div class="space-y-4">
+                      <div class="flex items-center justify-center md:justify-start">
+                          <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                              <span class="text-2xl">📍</span>
+                          </div>
+                          <div>
+                              <p class="font-semibold">Address:</p>
+                              <p class="text-gray-300">123 Culinary Street, Food District, City 12345</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="text-center md:text-left">
+                  <h3 class="font-playfair text-3xl font-bold mb-6 text-glow">Get in Touch</h3>
+                  <div class="space-y-4">
+                      <div class="flex items-center justify-center md:justify-start">
+                          <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                              <span class="text-2xl">📞</span>
+                          </div>
+                          <div>
+                              <p class="font-semibold">Phone:</p>
+                              <p class="text-gray-300">+1 (555) 123-4567</p>
+                          </div>
+                      </div>
+                      <div class="flex items-center justify-center md:justify-start">
+                          <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                              <span class="text-2xl">✉️</span>
+                          </div>
+                          <div>
+                              <p class="font-semibold">Email:</p>
+                              <p class="text-gray-300">hello@dininghub.com</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="text-center md:text-left">
+                  <h3 class="font-playfair text-3xl font-bold mb-6 text-glow">Follow Us</h3>
+                  <div class="flex justify-center md:justify-start space-x-4">
+                      <a href="#" class="bg-white bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                          <span class="text-2xl">📘</span>
+                      </a>
+                      <a href="#" class="bg-white bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                          <span class="text-2xl">📷</span>
+                      </a>
+                      <a href="#" class="bg-white bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                          <span class="text-2xl">🐦</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="border-t border-white border-opacity-20 mt-12 pt-8 text-center">
+              <p class="text-gray-300">&copy; 2025 Dining Hub. All rights reserved. | Crafted with ❤️ for food lovers</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+function triggerMenuDropdown() {
+    // First scroll to the navbar
+    document.querySelector('nav').scrollIntoView({ behavior: 'smooth' });
+    
+    // Wait for scroll to complete, then trigger dropdown
+    setTimeout(() => {
+        const menuButton = document.querySelector('#dropdownNavbarLink');
+        const dropdown = document.querySelector('#dropdownNavbar');
+        
+        if (menuButton && dropdown) {
+            // Toggle the dropdown visibility
+            dropdown.classList.toggle('hidden');
+            
+            // Update button aria-expanded attribute
+            const isExpanded = !dropdown.classList.contains('hidden');
+            menuButton.setAttribute('aria-expanded', isExpanded);
+        }
+    }, 600);
+}
+</script>
+     
+<script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+
+</body>
+</html>
